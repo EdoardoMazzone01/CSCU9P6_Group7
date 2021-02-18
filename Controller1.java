@@ -47,6 +47,7 @@ public class Controller1 extends JFrame
         quit = new JButton("Quit");
         window.add(quit);
         quit.addActionListener(this);
+        
         // Create views
         view1 = new View1(this, model);
         window.add(view1);
