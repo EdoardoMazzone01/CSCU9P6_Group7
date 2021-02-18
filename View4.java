@@ -29,6 +29,7 @@ public class View4 extends JPanel implements Observer {
         display = new JTextField("No data", 15);
         add(display);
         
+      //Subscribe to the model
         model.addObserver(this);
       
     } // constructor
