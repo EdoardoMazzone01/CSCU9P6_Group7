@@ -18,16 +18,18 @@ public class Controller2 extends JFrame
     private View4 view4;
     private JButton clearViews;   // For direct message to views
     //private JButton refreshViews; // To prompt them to refresh their contents from the model
+    private Jbutton incB;          //creates a new JButton for the increment B
  
     // Constructor
-    public Controller2(Model model, int posx, int posy) {
+    public Controller2(Model model) {
     
         // Record reference to the model
         this.model = model;
         
         // Configure the window
         setTitle("Controller2");
-        setLocation(posx, posy);
+        setLocation(40, 200);
+       //setLocation(posx, posy);
         setSize(350,150);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         Container window = getContentPane();
@@ -37,9 +39,18 @@ public class Controller2 extends JFrame
         clearViews = new JButton("Clear views");
         window.add(clearViews);
         clearViews.addActionListener(this);
+        
+        //Button for refresh view
         //refreshViews = new JButton("Refresh views");
         //window.add(refreshViews);
         //refreshViews.addActionListener(this);
+        
+        //Button to increment B
+        
+        incB = new JButton("Increment B");     //new JButton B
+        window.add(incB);                      
+        incB.addActionListener(this);              
+        
         // Create views
         view3 = new View3(this, model);
         window.add(view3);
@@ -54,10 +65,14 @@ public class Controller2 extends JFrame
     // Button click handling:
     public void actionPerformed(ActionEvent e) {
       
-        if (e.getSource() == clearViews) {
+        if (e.getSource() == clearViews) {   //source for clear views pressed
             view3.clear();
             view4.clear();
         }
+        
+        if (e.getSource() == incB)          //source for button B pressed 
+           model.modifyB();
+           
         
         /*
         if (e.getSource() == refreshViews) {
