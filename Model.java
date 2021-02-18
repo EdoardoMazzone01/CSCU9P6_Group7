@@ -18,7 +18,16 @@ public class Model extends Observable {
         notifyObservers();         // Note: notifies ALL Observing views
         
     } // modifyA
-  
+    
+    public void modifyB() {
+        
+        dataBaseB++;
+        setChanged();
+        notifyObservers();       // Note: thid notifies ALL observing views, and calls methods
+                                 // that have been previously called with setChange(); 
+    } // modifyB
+        
+    
     public int getDataA() {
         
         return dataBaseA;
